@@ -1,7 +1,7 @@
 ---
 - name: "Check if the Ricty is installed."
   stat:
-    path: ~/Library/Fonts/Ricty-Regular.ttf
+    path: "{{ansible_user_dir}}/Library/Fonts/Ricty-Regular.ttf"
   register: ricty
 
 - block:
@@ -43,7 +43,7 @@
       chdir: "{{tmp.path}}/Ricty"
 
   - name: "Move Ricty to Fonts directory."
-    shell: cp -f Ricty*.ttf ~/Library/Fonts/
+    shell: "cp -f Ricty*.ttf {{ansible_user_dir}}/Library/Fonts/"
     args:
       executable: /bin/zsh
       chdir: "{{tmp.path}}/Ricty"

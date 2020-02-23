@@ -17,7 +17,7 @@
   changed_when: false
 
 - name: "Import the Node.js release team's OpenPGP keys to main keyring"
-  shell: "/bin/zsh -c ~/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+  shell: "/bin/zsh -c {{ansible_user_dir}}/.asdf/plugins/nodejs/bin/import-release-team-keyring"
   when: item.name == 'nodejs'
 
 - name: Install specified version.

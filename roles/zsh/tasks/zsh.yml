@@ -17,5 +17,5 @@
 - name: "Add ~/.zshrc template file."
   template:
     src: zshrc.j2
-    dest: ~/.zshrc
+    dest: "{{ansible_user_dir}}/.zshrc"
     mode: 0644

@@ -2,5 +2,5 @@
 - name: "Copy karabiner configuration file."
   copy:
     src: karabiner.json
-    dest: "~/.config/karabiner"
+    dest: "{{ansible_user_dir}}/.config/karabiner"
     mode: 0600

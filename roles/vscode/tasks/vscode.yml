@@ -10,11 +10,11 @@
 - name: "Copy vscode configuration file."
   copy:
     src: settings.json
-    dest: "~/Library/Application Support/Code/User"
+    dest: "{{ansible_user_dir}}/Library/Application Support/Code/User"
     mode: 0644 
 
 - name: "Copy vscode keybindings file."
   copy:
     src: keybindings.json
-    dest: "~/Library/Application Support/Code/User"
+    dest: "{{ansible_user_dir}}/Library/Application Support/Code/User"
     mode: 0644 
