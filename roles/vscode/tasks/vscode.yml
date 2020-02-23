@@ -1,0 +1,20 @@
+---
+- name: "Install VSCode extensions."
+  command: "code --install-extension {{item}}"
+  register: result
+  changed_when:
+    - "'already installed.' not in result.stdout"
+    - result.rc == 0
+  loop: "{{vscode_extensions}}"
+
+- name: "Copy vscode configuration file."
+  copy:
+    src: settings.json
+    dest: "~/Library/Application Support/Code/User"
+    mode: 0644 
+
+- name: "Copy vscode keybindings file."
+  copy:
+    src: keybindings.json
+    dest: "~/Library/Application Support/Code/User"
+    mode: 0644 

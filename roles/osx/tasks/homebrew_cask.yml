@@ -1,0 +1,5 @@
+---
+- name: "Install GUI app with homebrew cask."
+  homebrew_cask:
+    name: "{{item}}"
+  loop: "{{homebrew_cask_items}}"

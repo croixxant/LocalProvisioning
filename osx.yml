@@ -1,0 +1,9 @@
+---
+- hosts: osx
+  roles:
+    - osx
+    - zsh
+    - vscode
+    - asdf
+    - neovim
+    - ricty

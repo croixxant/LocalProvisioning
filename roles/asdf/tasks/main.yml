@@ -1,0 +1,8 @@
+---
+# tasks file for asdf
+- block:
+  - include_tasks: asdf.yml
+    loop: "{{asdf_versions}}"
+  environment:
+    KERL_CONFIGURE_OPTIONS: "{{kerl_configure_options}}"    
+  tags: asdf

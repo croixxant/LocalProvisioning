@@ -1,0 +1,4 @@
+---
+# tasks file for vscode
+- import_tasks: vscode.yml
+  tags: vscode

@@ -1,0 +1,65 @@
+---
+- name: "Install Ruby support for Neovim."
+  gem:
+    name: neovim
+    user_install: false
+
+- name: "Install Nodejs support for Neovim."
+  npm:
+    name: neovim
+    global: true
+
+- name: "Set global python versions."
+  command: "asdf global python {{asdf_versions|reverse|selectattr('name', '==', 'python')|join(' ', attribute='version')}}"
+
+- name: "Install Python2 support for Neovim."
+  pip:
+    name: "{{item}}"
+    executable: pip2
+  loop:
+    - "pynvim"
+    - "neovim"
+
+- name: "Install Python3 support for Neovim."
+  pip:
+    name: "{{item}}"
+    executable: pip3
+  loop:
+    - "pynvim"
+    - "neovim"
+
+- name: "Get which is python2"
+  command: "asdf which python2"
+  register: python2
+  changed_when: false
+
+- name: "Get which is python3"
+  command: "asdf which python3"
+  register: python3
+  changed_when: false
+
+- name: "Create neovim config home directory."
+  file:
+    path: "{{neovim_config_home}}"
+    state: directory
+
+- name: "Create dein home directory."
+  file:
+    path: "{{neovim_dein_home}}"
+    state: directory
+
+- name: "Add init.vim template file."
+  template:
+    src: init.vim.j2
+    dest: "{{neovim_config_home}}/init.vim"
+    mode: 0644
+
+- name: "Add dein config files."
+  copy:
+    src: "{{item}}"
+    dest: "{{neovim_config_home}}/{{item}}"
+    mode: 0644
+  loop:
+    - dein.toml
+    - dein_lazy.toml
+

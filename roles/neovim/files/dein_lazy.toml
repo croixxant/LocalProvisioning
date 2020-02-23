@@ -1,0 +1,43 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_i = 1
+depends = ['neosnippet-snippets']
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript', 'html']
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'elixir-lang/vim-elixir'
+on_ft = ['elixir']
+
+[[plugins]]
+repo = 'lighttiger2505/gtags.vim'
+hook_add = '''
+  nnoremap <silent> <C-]> :GtagsCursor<CR>
+  nnoremap <silent> <C-j> :cn<CR>
+  nnoremap <silent> <C-k> :cp<CR>
+'''

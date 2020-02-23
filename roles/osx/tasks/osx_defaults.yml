@@ -1,0 +1,16 @@
+---
+- name: "Set Apple Global Domain defaults"
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "{{item.key}}"
+    type: "{{item.type}}"
+    value: "{{item.value}}"
+  loop: "{{osx_defaults_global}}"
+  
+- name: "Set com.apple defaults"
+  osx_defaults:
+    domain: "com.apple.{{item.domain}}"
+    key: "{{item.key}}"
+    type: "{{item.type}}"
+    value: "{{item.value}}"
+  loop: "{{osx_defaults_apple}}"

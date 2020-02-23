@@ -1,0 +1,22 @@
+---
+# tasks file for osx_defaults
+- import_tasks: osx_defaults.yml
+    tags: osx_defaults
+
+# tasks file for karabiner
+- import_tasks: karabiner.yml
+    tags: karabiner
+
+# tasks file for iterm
+- import_tasks: iterm.yml
+    tags: iterm
+
+# tasks file for homebrew
+- import_tasks: homebrew.yml
+    tags: homebrew
+
+# tasks file for homebrew_cask
+- import_tasks: homebrew_cask.yml
+    environment:
+    HOMEBREW_CASK_OPTS: "{{homebrew_cask_opts}}"
+    tags: homebrew_cask

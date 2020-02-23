@@ -1,0 +1,53 @@
+# LANG
+export LANG=ja_JP.UTF-8
+
+# PROMPT
+# If sindresorhus/pure is not installed, this setting is used.
+PROMPT='%m %~ %% '
+
+# autocomplete
+autoload -U compinit
+compinit
+
+# save histories
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
+setopt auto_cd              # cd の入力を不必要にする
+function chpwd() { ls }     # 自動ls
+setopt list_packed          # 補完候補を詰める
+setopt auto_pushd           # 移動したディレクトリを記憶 cd -[tab]
+unsetopt correctall         # disable correct
+setopt nolistbeep           # ビープ音を消す
+
+export XDG_CACHE_HOME="{{xdg_cache_home}}"
+export XDG_CONFIG_HOME="{{xdg_config_home}}"
+
+declare -A ZINIT  # initial Zinit's hash definition, if configuring before loading Zinit, and then:
+ZINIT[BIN_DIR]={{zinit_bin_dir}}
+ZINIT[HOME_DIR]={{zinit_home_dir}}
+ZINIT[PLUGINS_DIR]=
+ZINIT[COMPLETIONS_DIR]=
+ZINIT[SNIPPETS_DIR]=
+ZINIT[ZCOMPDUMP_PATH]=
+ZINIT[COMPINIT_OPTS]="-C"
+ZINIT[MUTE_WARNINGS]=
+
+. {{zinit_bin_dir}}/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+{% for plugin in zinit_plugins %}
+{% if "ices" in plugin %}
+zinit ice{% for ice in plugin.ices %} {% if "value" in ice %}{{ ice.name }}={{ ice.value }}{% else %}{{ ice.name }}{% endif %}{% endfor %}  
+{% endif %}
+zinit {{ plugin.value }} {{ plugin.name }}
+{% endfor %}
+
+declare -A ASDF
+ASDF[HOME_DIR]={{asdf.stdout}}
+. ${ASDF[HOME_DIR]}/asdf.sh
+. ${ASDF[HOME_DIR]}/etc/bash_completion.d/asdf.bash

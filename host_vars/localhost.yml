@@ -1,0 +1,55 @@
+---
+ansible_connection: local
+ansible_python_interpreter: "{{ansible_playbook_python}}"
+xdg_config_home: ~/.config
+xdg_cache_home: ~/.cache
+neovim_config_home: "{{xdg_config_home}}/nvim"
+neovim_dein_home: "{{xdg_cache_home}}/dein"
+zinit_home_dir: "~/.zinit"
+zinit_bin_dir: "{{zinit_home_dir}}/bin"
+zinit_plugins:
+  - name: zsh-users/zsh-autosuggestions
+    value: light
+  - name: zdharma/fast-syntax-highlighting
+    value: light
+  - name: sindresorhus/pure
+    value: light
+    ices:
+      - name: pick
+        value: "async.zsh"
+      - name: src
+        value: "pure.zsh"
+  - name: junegunn/fzf-bin
+    value: load
+    ices:
+      - name: from
+        value: "gh-r"
+      - name: as
+        value: "program"
+vscode_extensions:
+  - dracula-theme.theme-dracula
+  - eamodio.gitlens
+  - jebbs.plantuml
+  - ms-vscode.go
+  - ms-azuretools.vscode-docker
+  - hookyqr.beautify
+asdf_versions:
+  - name: golang
+    version: 1.9
+    plugin: https://github.com/kennyp/asdf-golang.git
+  - name: python
+    version: 2.7.13
+    plugin: https://github.com/tuvistavie/asdf-python.git
+  - name: python
+    version: 3.6.1
+    plugin: https://github.com/tuvistavie/asdf-python.git
+  - name: nodejs
+    version: 13.8.0
+    plugin: https://github.com/asdf-vm/asdf-nodejs.git
+  - name: erlang
+    version: 20.2.2
+    plugin: https://github.com/asdf-vm/asdf-erlang.git
+  - name: elixir
+    version: 1.6.0
+    plugin: https://github.com/asdf-vm/asdf-elixir.git
+kerl_configure_options: "--without-javac --disable-hipe"

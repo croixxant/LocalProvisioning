@@ -1,0 +1,129 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+  nnoremap    [Denite]   <Nop>
+  nmap    <Space> [Denite]
+  nnoremap <silent> [Denite]m :<C-u>Denite
+    \-mode=normal file_mru<CR>
+  nnoremap <silent> [Denite]r :<C-u>Denite file_rec<CR>
+  nnoremap <silent> [Denite]g :<C-u>Denite grep<CR>
+  nnoremap <silent> [Denite]l :<C-u>Denite line<CR>
+  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
+  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
+  call denite#custom#option('default', 'prompt', '>')
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_auto_colors = 0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
+'''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+  vmap <Space> <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [
+  \     ['mode', 'paste'],
+  \     ['readonly', 'filename', 'modified'],
+  \   ],
+  \   'right': [
+  \     ['lineinfo'],
+  \     ['percent'],
+  \     ['fileformat', 'fileencoding', 'filetype'],
+  \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+  \   ]
+  \ },
+  \ 'component_function': {
+  \ }
+  \ }
+'''
+
+[[plugins]]
+repo = 'maximbaz/lightline-ale'
+depends = ['lightline.vim', 'ale']
+hook_add = '''
+  let g:lightline.component_expand = {
+  \ 'linter_checking': 'lightline#ale#checking',
+  \ 'linter_warnings': 'lightline#ale#warnings',
+  \ 'linter_errors': 'lightline#ale#errors',
+  \ 'linter_ok': 'lightline#ale#ok',
+  \ }
+  let g:lightline.component_type = {
+  \ 'linter_checking': 'left',
+  \ 'linter_warnings': 'warning',
+  \ 'linter_errors': 'error',
+  \ 'linter_ok': 'left',
+  \ }
+  let g:lightline#ale#indicator_warnings = '⚠ '
+  let g:lightline#ale#indicator_errors = '⨉ '
+  let g:lightline#ale#indicator_ok = '⬥ OK'
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \   'ruby': ['rubocop'],
+  \   'elixir': ['mix'],
+  \}
+
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <C-e> :NERDTreeToggle<CR>
+'''
+
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# hook_source = '''
+#   let g:gen_tags#ctags_auto_gen = 0
+#   let g:gen_tags#gtags_auto_gen = 1
+# '''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'dracula/vim'

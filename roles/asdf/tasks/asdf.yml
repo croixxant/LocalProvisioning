@@ -1,0 +1,42 @@
+---
+- name: "Check if the plugin is installed."
+  command: "asdf plugin-list"
+  register: plugins_result
+  changed_when: false
+  failed_when:
+    - "'No plugins installed' not in plugins_result.stderr"
+    - plugins_result.rc >= 2
+
+- name: Install plugin.
+  command: "asdf plugin-add {{item.name}} {{item.plugin}}"
+  when: "item.name not in plugins_result.stdout_lines"
+
+- name: "Check if the specified version is installed."
+  command: "asdf list {{item.name}}"
+  register: versions_result
+  changed_when: false
+
+- name: "Import the Node.js release team's OpenPGP keys to main keyring"
+  shell: "/bin/zsh -c ~/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+  when: item.name == 'nodejs'
+
+- name: Install specified version.
+  command: "asdf install {{item.name}} {{item.version}}"
+  when: "item.version|string not in versions_result.stdout_lines|map('trim')"
+
+- name: "Check the current version."
+  command: "asdf current {{item.name}}"
+  register: current_result
+  changed_when: false
+  failed_when:
+    - "'No version set' not in plugins_result.stderr"
+    - plugins_result.rc >= 2
+
+- name: "Set current version."
+  command: "asdf global {{item.name}} {{item.version}}"
+  register: current_changed
+  when: item.version|string not in current_result.stdout
+
+- name: "Reshim"
+  command: "asdf reshim {{item.name}} {{item.version}}"
+  when: current_changed.changed

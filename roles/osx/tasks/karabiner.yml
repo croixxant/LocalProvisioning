@@ -1,0 +1,6 @@
+---
+- name: "Copy karabiner configuration file."
+  copy:
+    src: karabiner.json
+    dest: "~/.config/karabiner"
+    mode: 0600

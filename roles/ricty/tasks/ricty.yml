@@ -1,0 +1,53 @@
+---
+- name: "Check if the Ricty is installed."
+  stat:
+    path: ~/Library/Fonts/Ricty-Regular.ttf
+  register: ricty
+
+- block:
+  - name: "Create temporary directory." 
+    tempfile:
+      state: directory
+    register: tmp
+  
+  - name: "Download generator."
+    git:
+      repo: https://github.com/kudryavka/Ricty.git
+      dest: "{{tmp.path}}/Ricty"
+  
+  - name: "Download Migu 1M"
+    get_url:
+      url: https://ja.osdn.net/frs/redir.php?m=jaist&f=mix-mplus-ipa%2F63545%2Fmigu-1m-20150712.zip
+      dest: "{{tmp.path}}/migu-1m.zip"
+
+  - name: "Unarchive migu-1m.zip."
+    command: "tar xvf migu-1m.zip --strip=1"
+    args:
+      chdir: "{{tmp.path}}"
+
+  - name: "Copy Mugu 1M fonts to Ricty directory."
+    shell: "cp -f ./migu-1m-{regular,bold}.ttf ./Ricty/"
+    args:
+      executable: /bin/zsh
+      chdir: "{{tmp.path}}"
+
+  - name: "Download Inconsolata"
+    get_url:
+      url: http://levien.com/type/myfonts/Inconsolata.otf
+      dest: "{{tmp.path}}/Ricty/Inconsolata.otf"
+
+  - name: "Generate Ricty."
+    shell: ". ./ricty_generator.sh Inconsolata.otf migu-1m-{regular,bold}.ttf"
+    args:
+      executable: /bin/zsh
+      chdir: "{{tmp.path}}/Ricty"
+
+  - name: "Move Ricty to Fonts directory."
+    shell: cp -f Ricty*.ttf ~/Library/Fonts/
+    args:
+      executable: /bin/zsh
+      chdir: "{{tmp.path}}/Ricty"
+  
+  - name: "Update caches."
+    command: "fc-cache -vf"
+  when: not ricty.stat.exists

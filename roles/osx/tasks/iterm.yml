@@ -1,0 +1,6 @@
+---
+- name: "Copy iterm2's plist file."
+  copy:
+    src: "com.googlecode.iterm2.plist"
+    dest: "{{xdg_config_home}}/com.googlecode.iterm2.plist"
+    mode: 0600

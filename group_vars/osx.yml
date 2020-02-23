@@ -1,0 +1,71 @@
+---
+homebrew_items:
+  # Utils
+  - neovim
+  - asdf
+  - wget
+  - jq
+  - fswatch
+  - rsync
+  - unison
+  - ctags
+  - global
+  # For asdf-vm
+  - coreutils
+  - automake
+  - autoconf
+  - openssl
+  - libyaml
+  - readline
+  - libxslt
+  - libtool
+  - unixodbc
+  - unzip
+  - curl
+  - gpg # For nodejs plugin
+  - wxmac # For erlang
+  # For create Ricty
+  - fontforge
+homebrew_cask_opts: --appdir=/Applications
+homebrew_cask_items:
+  - karabiner-elements
+  - google-japanese-ime
+  - google-chrome
+  - iterm2
+  - visual-studio-code
+  - docker
+  - slack
+  - discord
+  - appcleaner
+  - adobe-creative-cloud
+  - steam
+  - steam
+osx_defaults_global:
+  - key: AppleInterfaceStyle
+    type: string
+    value: "Dark"
+  - key: AppleShowScrollBars
+    type: string
+    value: "Automatic"
+  - key: AppleScrollerPagingBehavior
+    type: integer
+    value: 1
+  - key: InitialKeyRepeat
+    type: integer
+    value: 25
+  - key: KeyRepeat
+    type: integer
+    value: 2
+osx_defaults_apple:
+  - domain: menuextra.battery
+    key: ShowPercent
+    type: string
+    value: "YES"
+  - domain: dock
+    key: autohide
+    type: integer
+    value: 1
+  - domain: dock
+    key: mineffect
+    type: string
+    value: scale

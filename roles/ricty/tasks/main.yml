@@ -1,0 +1,5 @@
+---
+# tasks file for ricty
+- import_tasks: ricty.yml
+  tags: ricty
+    

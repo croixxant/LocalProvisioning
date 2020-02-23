@@ -1,0 +1,21 @@
+---
+- name: "Create Zinit directory."
+  file:
+    path: "{{zinit_home_dir}}"
+    state: directory
+
+- name: "Install Zinit."
+  git:
+    repo: https://github.com/zdharma/zinit.git
+    dest: "{{zinit_bin_dir}}"
+
+- name: "Get asdf-vm path."
+  command: "brew --prefix asdf"
+  register: asdf
+  changed_when: false
+
+- name: "Add ~/.zshrc template file."
+  template:
+    src: zshrc.j2
+    dest: ~/.zshrc
+    mode: 0644

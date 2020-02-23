@@ -1,0 +1,5 @@
+---
+- name: "Install packages with homebrew."
+  homebrew:
+    name: "{{item}}"
+  loop: "{{homebrew_items}}"
