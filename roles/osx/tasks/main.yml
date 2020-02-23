@@ -19,4 +19,4 @@
 - import_tasks: homebrew_cask.yml
   environment:
     HOMEBREW_CASK_OPTS: "{{homebrew_cask_opts}}"
-    tags: homebrew_cask
+  tags: homebrew_cask
