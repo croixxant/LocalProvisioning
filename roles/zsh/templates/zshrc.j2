@@ -23,8 +23,8 @@ setopt auto_pushd           # 移動したディレクトリを記憶 cd -[tab]
 unsetopt correctall         # disable correct
 setopt nolistbeep           # ビープ音を消す
 
-export XDG_CACHE_HOME="{{xdg_cache_home}}"
-export XDG_CONFIG_HOME="{{xdg_config_home}}"
+export XDG_CACHE_HOME={{xdg_cache_home}}
+export XDG_CONFIG_HOME={{xdg_config_home}}
 
 declare -A ZINIT  # initial Zinit's hash definition, if configuring before loading Zinit, and then:
 ZINIT[BIN_DIR]={{zinit_bin_dir}}
