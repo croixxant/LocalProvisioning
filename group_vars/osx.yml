@@ -52,7 +52,7 @@ osx_defaults_global:
     value: 1
   - key: InitialKeyRepeat
     type: integer
-    value: 25
+    value: 15
   - key: KeyRepeat
     type: integer
     value: 2
