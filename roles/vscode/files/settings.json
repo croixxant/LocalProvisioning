@@ -1,5 +1,10 @@
 {
+    "editor.formatOnSave": true,
     "editor.formatOnPaste": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "git.autofetch": true
 }
