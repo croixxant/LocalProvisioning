@@ -1,5 +1,5 @@
 {
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
     "explorer.confirmDelete": false,
     "git.autofetch": true
 }
