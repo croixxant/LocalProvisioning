@@ -39,7 +39,7 @@ homebrew_cask_items:
   - appcleaner
   - adobe-creative-cloud
   - steam
-  - steam
+  - kindle
 osx_defaults_global:
   - key: AppleInterfaceStyle
     type: string
