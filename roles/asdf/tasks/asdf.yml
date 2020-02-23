@@ -40,3 +40,12 @@
 - name: "Reshim"
   command: "asdf reshim {{item.name}} {{item.version}}"
   when: current_changed.changed
+
+- name: "Install node packages."
+  npm:
+    name: "{{package}}"
+    global: true
+  loop: "{{asdf_node_packages}}"
+  loop_control:
+    loop_var: package
+  when: item.name == 'nodejs'
