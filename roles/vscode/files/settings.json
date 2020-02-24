@@ -4,7 +4,11 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "emmet.triggerExpansionOnTab": true
 }
