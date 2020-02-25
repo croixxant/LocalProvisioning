@@ -38,6 +38,7 @@ homebrew_cask_items:
   - discord
   - appcleaner
   - adobe-creative-cloud
+  - spotify
   - steam
   - kindle
 osx_defaults_global:
