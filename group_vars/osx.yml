@@ -43,6 +43,7 @@ homebrew_cask_items:
   - spotify
   - steam
   - kindle
+  - paw
 osx_defaults_global:
   - key: AppleInterfaceStyle
     type: string
