@@ -11,6 +11,7 @@ homebrew_items:
   - ctags
   - global
   - ripgrep
+  - mysql-client
   # For asdf-vm
   - coreutils
   - automake

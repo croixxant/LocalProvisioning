@@ -26,6 +26,11 @@ setopt nolistbeep           # ビープ音を消す
 export XDG_CACHE_HOME={{xdg_cache_home}}
 export XDG_CONFIG_HOME={{xdg_config_home}}
 
+if [ -d "/usr/local/opt/mysql-client/bin" ]
+then
+  export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+fi
+
 declare -A ZINIT  # initial Zinit's hash definition, if configuring before loading Zinit, and then:
 ZINIT[BIN_DIR]={{zinit_bin_dir}}
 ZINIT[HOME_DIR]={{zinit_home_dir}}
@@ -42,7 +47,8 @@ autoload -Uz _zinit
 
 {% for plugin in zinit_plugins %}
 {% if "ices" in plugin %}
-zinit ice{% for ice in plugin.ices %} {% if "value" in ice %}{{ ice.name }}={{ ice.value }}{% else %}{{ ice.name }}{% endif %}{% endfor %}  
+zinit ice{% for ice in plugin.ices %} {% if "value" in ice %}{{ ice.name }}={{ ice.value }}{% else %}{{ ice.name }}{% endif %}{% endfor %}
+
 {% endif %}
 zinit {{ plugin.value }} {{ plugin.name }}
 {% endfor %}
@@ -50,4 +56,3 @@ zinit {{ plugin.value }} {{ plugin.name }}
 declare -A ASDF
 ASDF[HOME_DIR]={{asdf.stdout}}
 . ${ASDF[HOME_DIR]}/asdf.sh
-. ${ASDF[HOME_DIR]}/etc/bash_completion.d/asdf.bash
