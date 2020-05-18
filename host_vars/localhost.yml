@@ -34,6 +34,7 @@ vscode_extensions:
   - ms-azuretools.vscode-docker
   - hookyqr.beautify
   - esbenp.prettier-vscode
+  - jakebecker.elixir-ls
 asdf_versions:
   - name: golang
     version: 1.9
