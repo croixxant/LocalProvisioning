@@ -46,6 +46,7 @@ homebrew_cask_items:
   - kindle
   - paw
   - oracle-jdk
+  - tableplus
 osx_defaults_global:
   - key: AppleInterfaceStyle
     type: string
