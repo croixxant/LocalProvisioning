@@ -12,5 +12,7 @@
   "git.autofetch": true,
   "emmet.triggerExpansionOnTab": true,
   "prettier.printWidth": 120,
-  "plantuml.commandArgs": ["--illegal-access=deny"]
+  "plantuml.commandArgs": ["--illegal-access=deny"],
+  "workbench.colorTheme": "SynthWave '84",
+  "synthwave84.brightness": 0.35
 }
