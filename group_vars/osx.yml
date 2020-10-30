@@ -12,6 +12,7 @@ homebrew_items:
   - global
   - ripgrep
   - mysql-client
+  - postgresql
   - graphviz
   # For asdf-vm
   - coreutils
@@ -50,10 +51,10 @@ homebrew_cask_items:
 osx_defaults_global:
   - key: AppleInterfaceStyle
     type: string
-    value: "Dark"
+    value: 'Dark'
   - key: AppleShowScrollBars
     type: string
-    value: "Automatic"
+    value: 'Automatic'
   - key: AppleScrollerPagingBehavior
     type: integer
     value: 1
@@ -67,7 +68,7 @@ osx_defaults_apple:
   - domain: menuextra.battery
     key: ShowPercent
     type: string
-    value: "YES"
+    value: 'YES'
   - domain: dock
     key: autohide
     type: integer
