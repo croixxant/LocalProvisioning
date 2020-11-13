@@ -35,8 +35,7 @@ vscode_extensions:
   - hookyqr.beautify
   - esbenp.prettier-vscode
   - jakebecker.elixir-ls
-  - robbowen.synthwave-vscode
-  - lehni.vscode-fix-checksums
+  - tinkertrain.theme-panda
 asdf_versions:
   - name: golang
     version: 1.9
