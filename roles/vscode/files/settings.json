@@ -13,6 +13,5 @@
   "emmet.triggerExpansionOnTab": true,
   "prettier.printWidth": 120,
   "plantuml.commandArgs": ["--illegal-access=deny"],
-  "workbench.colorTheme": "SynthWave '84",
-  "synthwave84.brightness": 0.35
+  "workbench.colorTheme": "Panda Syntax"
 }

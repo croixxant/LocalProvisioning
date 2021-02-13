@@ -30,7 +30,7 @@ vscode_extensions:
   - dracula-theme.theme-dracula
   - eamodio.gitlens
   - jebbs.plantuml
-  - ms-vscode.go
+  - golang.go
   - ms-azuretools.vscode-docker
   - hookyqr.beautify
   - esbenp.prettier-vscode
