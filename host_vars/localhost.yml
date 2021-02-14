@@ -47,7 +47,7 @@ asdf_versions:
     version: 3.6.1
     plugin: https://github.com/tuvistavie/asdf-python.git
   - name: nodejs
-    version: 13.8.0
+    version: 15.8.0
     plugin: https://github.com/asdf-vm/asdf-nodejs.git
   - name: erlang
     version: 23.0.3
