@@ -2,6 +2,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "[javascript]": {
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
@@ -11,7 +12,7 @@
   "explorer.confirmDragAndDrop": false,
   "git.autofetch": true,
   "emmet.triggerExpansionOnTab": true,
-  "prettier.printWidth": 120,
+  "prettier.printWidth": 140,
   "plantuml.commandArgs": ["--illegal-access=deny"],
   "workbench.colorTheme": "Panda Syntax"
 }
