@@ -1,8 +1,4 @@
 ---
-# tasks file for osx_defaults
-- import_tasks: osx_defaults.yml
-  tags: osx_defaults
-
 # tasks file for karabiner
 - import_tasks: karabiner.yml
   tags: karabiner
@@ -18,5 +14,5 @@
 # tasks file for homebrew_cask
 - import_tasks: homebrew_cask.yml
   environment:
-    HOMEBREW_CASK_OPTS: "{{homebrew_cask_opts}}"
+    HOMEBREW_CASK_OPTS: '{{homebrew_cask_opts}}'
   tags: homebrew_cask
